@@ -1,5 +1,28 @@
 $(function () {
+    // 스크롤 이벤트
+    $(function () {
+        $(window).on('scroll', function () {
+            let sct = $(window).scrollTop();
+            sct > 0
+                ? $('#header').addClass('on')
+                : $('#header').removeClass('on')
+        });
+    });
 
+    $(window).on('scroll', function () {
+        let sct = $(window).scrollTop();
+        $('.scr').each(function () {
+            if (sct + $(window).innerHeight() - 200 > $(this).offset().top) {
+                $(this).addClass('on')
+            }
+            else {
+                $(this).removeClass('on')
+            };
+
+        })
+    });
+
+    // 섹션
     const MAINSLIDE = new Swiper('.main_slide', {
         loop: true,
         effect: "fade",
@@ -54,5 +77,7 @@ $(function () {
         $('.tab_area>*').eq(idx).addClass('on').siblings().removeClass('on');
         $(this).addClass('on').siblings().removeClass('on');
     });
+
+
 });
 
