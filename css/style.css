@@ -576,37 +576,108 @@
 
 #main_health .content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr;
     gap: 32px;
 }
 
 @media(max-width:768px) {
     #main_health .content {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
         gap: 32px;
     }
 }
 
 #main_health .content>* {
-    border: 1px solid var(--mc);
+    /* border: 1px solid var(--mc); */
     overflow: hidden;
+    padding: 30px 30px;
 }
 
 #main_health .content h3 {
     font-size: 24px;
-    font-weight: 600;
-    padding: 8px 16px;
+    font-weight: 500;
+    padding: 0 0 8px 0;
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 #main_health .content h3::after {
-    content: " \F4F9";
+    content: "\F64D";
     font-family: bootstrap-icons;
-    color: var(--sc);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    padding: 8px;
+    vertical-align: middle;
+    cursor: pointer;
 }
+
+#main_health .health_schedule {
+    background: var(--mc);
+}
+
+#main_health .health_schedule h3 {
+    color: var(--wc);
+}
+
+#main_health .health_schedule ul {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    /* align-items: center; */
+}
+
+#main_health .health_schedule ul>li {
+    padding: 14px 4px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    line-height: 19px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+#main_health .health_schedule ul>li strong {
+    color: var(--wc);
+    display: block;
+    margin: 0 0 5px 0;
+    font-size: 17px;
+}
+
+#main_health .content .content_right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#main_health .content .content_right .img_box {
+    margin: 0 0 10px 0;
+    border: 1px solid #ddd;
+}
+
+#main_health .content .content_right h3::after {
+    color: var(--mc);
+    border: 1px solid var(--mc);
+}
+
+#main_health .content .content_right strong {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#main_health .health_tv strong {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+}
+
+#main_health .health_info .swiper-slide strong {
+    font-size: 16px;
+}
+
+
 
 #main_notice .inner {
     display: grid;
@@ -622,29 +693,32 @@
 }
 
 #main_notice .tab {
-    font-size: 18px;
+    position: relative;
+    font-size: 20px;
     font-weight: 700;
     display: flex;
 }
 
-#main_notice .tab>li {
-    position: relative;
-    padding: 16px 16px;
-}
-
-#main_notice .tab>li:after {
-    content: "";
+#main_notice .tab::after {
+    content: "\F64D";
+    font-family: bootstrap-icons;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--mc);
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 24px;
+    padding: 8px;
+    border: 1px solid #444;
+    cursor: pointer;
 }
 
-#main_notice .tab>li.on::after {
-    width: 100%;
-    transition: .4s;
+#main_notice .tab>li {
+    padding: 16px 24px;
+    z-index: 998;
+}
+
+#main_notice .tab>li.on {
+    background: var(--bg);
 }
 
 #main_notice .tab_area {
@@ -667,12 +741,45 @@
     opacity: 1;
 }
 
-
-
 #main_notice .tab_area ul>li {
     font-size: 18px;
     background: #fff;
     flex: 1;
+}
+
+#main_notice .map_area strong {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 8px 0;
+}
+
+#main_notice .map_area strong::after {
+    content: "\F64D";
+    font-family: bootstrap-icons;
+    font-size: 24px;
+    padding: 8px;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
+#main_notice .map_con {
+    position: relative;
+    height: 400px;
+}
+
+#main_notice .map_con ._map {
+    position: absolute;
+    inset: 0 0 0 0;
+    width: 100%;
+    height: 100%;
+}
+
+#main_notice .root_daum_roughmap .wrap_map {
+    position: relative;
+    height: calc(100% - 1px);
 }
 
 #footer {

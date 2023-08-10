@@ -61,6 +61,8 @@ $(function () {
             delay: 4000,
             disableOnInteraction: false,
         },
+        slidesPerView: 2,
+        spaceBetween: 16,
     });
 
     const HEALTHSLIDE = new Swiper('.health_slide', {
@@ -69,6 +71,8 @@ $(function () {
             delay: 4000,
             disableOnInteraction: false,
         },
+        slidesPerView: 3,
+        spaceBetween: 8,
     });
 
     $('.tab_menu .tab li').on('click', function (e) {
