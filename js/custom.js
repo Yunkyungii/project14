@@ -22,6 +22,11 @@ $(function () {
         })
     });
 
+    $('.lang i').on('click', function (e) {
+        e.preventDefault();
+        $('.lang ul').toggleClass('on')
+    });
+
     // 섹션
     const MAINSLIDE = new Swiper('.main_slide', {
         loop: true,
@@ -87,11 +92,15 @@ $(function () {
     const RESLIDE = new Swiper('.research_slide', {
         slidesPerView: 3,
         spaceBetween: 20,
+        navigation: {
+            nextEl: "#main_health .arrows .right",
+            prevEl: "#main_health .arrows .left",
+        },
     })
 
-    const HEALTHSLIDE = new Swiper('.health_slide', {
-        slidesPerView: 1,
-    });
+    // const HEALTHSLIDE = new Swiper('.health_slide', {
+    //     slidesPerView: 1,
+    // });
 
 
     // 탭메뉴 - main board
